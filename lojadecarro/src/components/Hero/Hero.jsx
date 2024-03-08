@@ -4,7 +4,7 @@ import yellowCarPng from "../../assets/yellowCar.png"
 
 const Hero = ({theme}) => {
     return (
-        <div className="dark:bg-black dark:text-white duration-300 relative -z-20">
+        <div className="dark:bg-black dark:text-white duration-300 relative -z-1">
             <div className="container min-h-[620px] flex">
                 <div className="grid place-items-center 
                 grid-cols-1 sm:grid-cols-2">
@@ -35,7 +35,8 @@ const Hero = ({theme}) => {
                             Car Rental
                         </h1>
                         <p data-aos="fade-up" 
-                        data-aos-delay="1000">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                        data-aos-delay="1000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+                        veritatis explicabo quibusdam quae reprehenderit ab{" "}</p>
                         <button
                             data-aos="fade-up" 
                             data-aos-duration="1500"

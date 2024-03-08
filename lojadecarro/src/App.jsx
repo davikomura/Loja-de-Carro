@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
-import Navbar from './components/Navbar/Navbar'
-import Hero from './components/Hero/Hero';
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+import Navbar from './components/Navbar/Navbar'
+import Hero from './components/Hero/Hero';
 import About from './components/About/About';
 import Services from './components/Services/Services';
 import CarList from './components/CarList/CarList';
@@ -39,7 +40,8 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-black dark:text-white pb-14">
+    <div className="bg-white dark:bg-black dark:text-white 
+    text-black overflow-x-hidden">
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero theme={theme} />
       <About />
@@ -50,7 +52,7 @@ const App = () => {
       <Contact />
       <Footer />
     </div> 
-  )
-}
+  );
+};
 
 export default App

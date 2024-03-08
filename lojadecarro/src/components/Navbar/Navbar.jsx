@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BiSolidMoon, BiSolidSun } from "react-icons/bi";
+import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
+import ResponsiveMenu from "./ResponsiveMenu";
 
-const NavLinks = [ 
+export const NavLinks = [ 
     {
         id: "1",
         name: "HOME",
@@ -25,8 +27,14 @@ const NavLinks = [
 ]
 
 const Navbar = ({theme, setTheme}) => {
-    return <nav className="shadow-md bg-white dark:bg-dark dark:text-white duration-300">
-        <div className="container md:py-0">
+    const [showMenu, setShowMenu] = useState(false);
+
+    const togglemenu = () => {
+        setShowMenu(!showMenu)
+    };
+    return <nav className="shadow-md bg-white dark:bg-dark dark:text-white 
+    duration-300 relative z-40">
+        <div className="container py-3 md:py-0">
             <div className="flex justify-between items-center">
                 <div>
                     <h1 className="text-xl font-bold font-serif">Car Rental</h1>
@@ -44,18 +52,42 @@ const Navbar = ({theme, setTheme}) => {
                                 font-medium" href={data.link}>{data.name}</a>
                             </li>
                         ))}
+                        <div>
+                            {theme === "dark" ? (
+                                <BiSolidSun onClick={() => setTheme("light")} className="text-2xl" />
+                            ) : (
+                                <BiSolidMoon onClick={() => setTheme("dark")} className="text-2xl" />
+                            )
+                            }
+                        </div>
                     </ul>
                 </div>
-                <div>
-                    {theme === "dark" ? (
-                        <BiSolidSun onClick={() => setTheme("light")} className="text-2xl" />
+                <div className="flex items-center gap-4 md:hidden">
+                    <div>
+                        {theme === "dark" ? (
+                            <BiSolidSun onClick={() => setTheme("light")} className="text-2xl" />
+                        ) : (
+                            <BiSolidMoon onClick={() => setTheme("dark")} className="text-2xl" />
+                        )
+                        }
+                    </div>
+                    {showMenu ? (
+                        <HiMenuAlt1 
+                            onClick={togglemenu}
+                            size={30}
+                            className="cursor-pointer transition-all"
+                        />
                     ) : (
-                        <BiSolidMoon onClick={() => setTheme("dark")} className="text-2xl" />
-                    )
-                    }
+                        <HiMenuAlt3 
+                            onClick={togglemenu}
+                            size={30}
+                            className="cursor-pointer transition-all"
+                        />
+                    )}
                 </div>
             </div>
         </div>
+        <ResponsiveMenu showMenu={showMenu}/>
     </nav>;
 }
 
